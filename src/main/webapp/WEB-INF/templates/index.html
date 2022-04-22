@@ -30,7 +30,7 @@ thArray.append(th);
         <th>Total price</th>
     </tr>
     <tr th:if="${groceries.empty}">
-        <td colspan="2"> No groceries available </td>
+        <td colspan="1"> No groceries available </td>
     </tr>
     <tr th:each="gro: ${groceries}">
         <td><span th:text="${gro.name}"> Items </span></td>
