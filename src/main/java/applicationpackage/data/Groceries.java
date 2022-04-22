@@ -1,6 +1,7 @@
 package applicationpackage.data;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -17,6 +18,7 @@ public class Groceries {
     private String name;
     @Min(value=1, message = "Numbers must be above 0")
     private int amount;
+    @Min(value=1, message = "Numbers must be above 0")
     private double price;
     private double totalPrice;
 

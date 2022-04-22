@@ -55,5 +55,4 @@ public class IndexControllerImp implements IndexController {
         return "redirect:/create";
     }
 
-
 }

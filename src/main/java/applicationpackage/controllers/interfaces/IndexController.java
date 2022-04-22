@@ -13,7 +13,6 @@ public interface IndexController {
     String addTable(@ModelAttribute("grocery") Groceries grocery);
 
 
-
     @DeleteMapping(value="/delete")
     String deleteGroceries(@ModelAttribute("grocery") Groceries grocery);
 }
