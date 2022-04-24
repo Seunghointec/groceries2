@@ -21,7 +21,7 @@ public class GroceriesServiceImp implements GroceriesService {
     }
 
    @Override
-    public List<Groceries> getAllGrocers() {
+    public List<Groceries> getAllGroceries() {
         return groceriesRepository.findAll();
     }
 

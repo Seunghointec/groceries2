@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface GroceriesService {
 
-        List<Groceries> getAllGrocers();
+        List<Groceries> getAllGroceries();
+
         Groceries addGroceries(Groceries groceries);
 
         Groceries deleteGroceries(Groceries groceries);

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class IndexControllerImp implements IndexController {
 
@@ -19,11 +21,12 @@ public class IndexControllerImp implements IndexController {
     @GetMapping("/create")
     public String indexMethod2(Model model) {
 
-        model.addAttribute("grocery", new Groceries("", 0, 0.00, 0.00));
-        model.addAttribute("groceries", groceriesService.getAllGrocers());
+        List<Groceries> groceries = groceriesService.getAllGroceries();
+        model.addAttribute("grocery", new Groceries("", 0, 0.00));
+        model.addAttribute("groceries", groceriesService.getAllGroceries());
+        System.out.println(groceriesService.getAllGroceries().get(0));
         return "index";
     }
-
 
     @Override
     @PostMapping("/create")
@@ -34,8 +37,7 @@ public class IndexControllerImp implements IndexController {
         else {
             groceriesService.addGroceries(grocery);
         }
-
-        return "redirect:create";
+        return "index";
     }
 
     @Override
@@ -54,5 +56,4 @@ public class IndexControllerImp implements IndexController {
         }
         return "redirect:/create";
     }
-
 }

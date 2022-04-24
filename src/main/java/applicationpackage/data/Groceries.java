@@ -1,10 +1,7 @@
 package applicationpackage.data;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.*;
 
 @Entity
 public class Groceries {
@@ -18,19 +15,17 @@ public class Groceries {
     private String name;
     @Min(value=1, message = "Numbers must be above 0")
     private int amount;
-    @Min(value=1, message = "Numbers must be above 0")
+//    @Digits(integer = 4 /*precision*/, fraction = 3 /*scale*/, message = "numbers must be above 0, and 3 fraction")
     private double price;
-    private double totalPrice;
+
 
     public Groceries() {
     }
 
-    public Groceries(String name, int amount, double price, double totalPrice) {
-
+    public Groceries(String name, int amount, double price) {
         this.name = name;
         this.amount = amount;
         this.price = price;
-        this.totalPrice = price;
     }
 
     public int getItemsID() {
@@ -63,10 +58,7 @@ public class Groceries {
         this.price = price;
     }
 
-    public double getTotalPrice() {
-        double totalPrice = this.amount * this.price;
-        return totalPrice;
-    }
+
 
 
 }
