@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Groceries List</title>
+</head>
+
+<style> table, th, td { border: 1px solid black;} </style>
+<body>
+
+<h2>My shopping list</h2>
+
+
+<table style="width:100%">
+    <tr>
+        <th>Items</th>
+        <th>Amount</th>
+        <th>Price</th>
+        <th>Total price</th>
+        <th></th>
+    </tr>
+
+    <tr th:each="gro: ${groceries}">
+        <td><span th:text="${gro.name}"> Items </span></td>
+        <td><span th:text="${gro.amount}"> Amount </span></td>
+        <td><span th:text="${gro.price}"> Price</span></td>
+        <td th:with="totalPrice=${gro.amount * gro.price}"><span th:text="${totalPrice}"></span></td>
+        <td><a th:href="@{/delete/{itemsID}(itemsID=${gro.itemsID})}">Delete</a></td>
+    </tr>
+</table>
+<form method="post" th:action=@{/create}>
+
+    <input type="text" name="name" th:text=${grocery.name}>
+    <input type="number" name="amount" th:text=${grocery.amount}>
+    <input type="number" name="price" th:text=${grocery.price}>
+    <input type="submit" value="Add Item">
+</form>
+</body>
+</html>
